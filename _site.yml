@@ -10,5 +10,4 @@ navbar:
     - text: "ინიციატივის შესახებ"
       href: about.html
 output: distill::distill_article
-
 theme: "gugutheme.css"
