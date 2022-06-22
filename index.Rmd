@@ -1,5 +1,5 @@
 ---
-title: "რესურსები"
+title: "რესურსები ქართულად"
 site: distill::distill_website
 listing: posts
 ---

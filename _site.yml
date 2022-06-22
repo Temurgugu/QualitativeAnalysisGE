@@ -1,13 +1,13 @@
 name: "translations"
-title: "რესურსები"
+title: "მონაცემთა ანალიზი"
 description: |
   რესურსები
 output_dir: "docs"
 navbar:
   right:
-    - text: "სტატიები"
+    - text: "ქართულად"
       href: index.html
-    - text: "ჩვენ შესახებ"
+    - text: "ინიციატივის შესახებ"
       href: about.html
 output: distill::distill_article
 
