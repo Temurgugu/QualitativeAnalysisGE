@@ -1,11 +1,11 @@
 name: "translations"
-title: "რესურსები"
+title: "QDAქართულად"
 description: |
   რესურსები
 output_dir: "docs"
 navbar:
   right:
-    - text: "სტატიები"
+    - text: "ქართულად"
       href: index.html
     - text: "ჩვენ შესახებ"
       href: about.html
