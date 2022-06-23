@@ -1,7 +1,8 @@
 ---
 title: "About this blog"
 description: |
-  Some additional details about the blog
+  ჯერ მხოლოდ ერთი სტატია ვთრგმნეთ :). 
+  Coming soon...
 ---
 
 ```{r setup, include=FALSE}
