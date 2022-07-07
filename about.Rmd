@@ -1,5 +1,5 @@
 ---
-title: "About this blog"
+title: "მონაცემთა ანალიზის რესურსები Q(D)Aრთულად"
 description: |
   ჯერ მხოლოდ ერთი სტატია ვთრგმნეთ :). 
   Coming soon...
