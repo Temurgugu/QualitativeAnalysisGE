@@ -90,7 +90,7 @@ knitr::opts_chunk$set(echo = FALSE)
 დედუქციური კატეგორიის გამოყენებას [Deductive category application] სჭირდება ანალიზის წინასწარ ფორმულირებული, თეორიაზე დაფუძნებული ასპექტების გამოყენებას გულისხმობს. ანალიზის თვისებრივ ეტაპზე მეთოდოლოგიით ნაკარნახევი წესის მიხედვით ტექსტის სეგმენტისთვის კატეგორიის მინიჭება ხდება. მიუხედავად იმისა, რომ ტექსტის ანალიზის რამდენიმე  მეთოდი მოიცავს დასახელებულ ეტაპს, ის მაინც სუსტადაა აღწერილი ლიტერატურაში. ქვემოთ წარმოდგენილია თვისებრივი კონტენტ-ანალიზის ეტაპებიანი მოდელი.
 
 
-```{r, echo = FALSE, fig.align = 'center', out.width = '60%', results = 'markup'} 
+```{r, echo = FALSE, fig.align = 'center', out.width = '100%'} 
 knitr::include_graphics("/Users/macbook/Documents/website/QualitativeAnalysisGE/image/fig_2-1.png")  
 ```
 
