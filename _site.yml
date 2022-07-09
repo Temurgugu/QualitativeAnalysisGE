@@ -13,5 +13,6 @@ navbar:
 output: distill::distill_article
 collections:
   posts:
-    share: [twitter, linkedin]
+    share: [twitter, linkedin, facebook]
+    citations: false
 theme: "gugutheme.css"
