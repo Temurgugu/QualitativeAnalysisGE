@@ -1,7 +1,8 @@
 name: "translations"
 title: "Q(D)Aრთულად" 
 description: |
-  რესურსები
+  ჩვენ ვთარგმნით მონაცემთა ანალიზის თვისებრივ მიდგომებს
+base_url: https://qartulad.netlify.app/
 output_dir: "docs"
 navbar:
   right:
