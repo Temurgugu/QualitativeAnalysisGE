@@ -31,15 +31,225 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{js, echo=FALSE}
-function checkPassword() {
-    var password = prompt("შეიყვანეთ პაროლი:");
-    if (password !== "you") {
-        document.body.innerHTML = "წვდომა აკრძალულიაარასწორი პაროლი";
-        return false;
-    }
-}
+(function() {
+    // Configuration
+    const CONFIG = {
+        password: "SCIEN", // Change this to your desired password
+        maxAttempts: 3,
+        sessionTimeout: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
+        storageKey: "distill_auth_" + window.location.pathname
+    };
 
-window.addEventListener('load', checkPassword);
+    // Check if user is already authenticated
+    function isAuthenticated() {
+        const authData = sessionStorage.getItem(CONFIG.storageKey);
+        if (!authData) return false;
+        
+        try {
+            const data = JSON.parse(authData);
+            const now = new Date().getTime();
+            return data.timestamp && (now - data.timestamp) < CONFIG.sessionTimeout;
+        } catch {
+            return false;
+        }
+    }
+
+    // Save authentication state
+    function saveAuthState() {
+        const authData = {
+            authenticated: true,
+            timestamp: new Date().getTime()
+        };
+        sessionStorage.setItem(CONFIG.storageKey, JSON.stringify(authData));
+    }
+
+    // Create styled password dialog
+    function createPasswordDialog() {
+        const overlay = document.createElement('div');
+        overlay.id = 'password-overlay';
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        `;
+
+        const dialog = document.createElement('div');
+        dialog.style.cssText = `
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: slideIn 0.3s ease-out;
+        `;
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateY(-50px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+            .shake {
+                animation: shake 0.5s ease-in-out;
+            }
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-10px); }
+                75% { transform: translateX(10px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        dialog.innerHTML = `
+            <h2 style="margin: 0 0 20px 0; color: #333; font-size: 24px;">🔒 დაცული სტატია</h2>
+            <p style="margin: 0 0 25px 0; color: #666; line-height: 1.5;">
+                ამ სტატიის წასაკითხად საჭიროა პაროლი
+            </p>
+            <input type="password" id="password-input" placeholder="შეიყვანეთ პაროლი" 
+                style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 6px; 
+                       font-size: 16px; margin-bottom: 20px; box-sizing: border-box;
+                       transition: border-color 0.3s;">
+            <div style="display: flex; gap: 10px; justify-content: center;">
+                <button id="submit-password" style="background: #007bff; color: white; border: none; 
+                        padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px;
+                        transition: background-color 0.3s;">
+                    შესვლა
+                </button>
+                <button id="cancel-password" style="background: #6c757d; color: white; border: none; 
+                        padding: 12px 24px; border-radius: 6px; cursor: pointer; font-size: 16px;
+                        transition: background-color 0.3s;">
+                    გაუქმება
+                </button>
+            </div>
+            <div id="error-message" style="color: #dc3545; margin-top: 15px; font-size: 14px; display: none;"></div>
+            <div id="attempts-counter" style="color: #6c757d; margin-top: 10px; font-size: 12px;"></div>
+        `;
+
+        overlay.appendChild(dialog);
+        return overlay;
+    }
+
+    // Show access denied page
+    function showAccessDenied() {
+        document.body.innerHTML = `
+            <div style="display: flex; justify-content: center; align-items: center; 
+                        min-height: 100vh; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                <div style="text-align: center; padding: 40px;">
+                    <div style="font-size: 80px; margin-bottom: 20px;">🚫</div>
+                    <h1 style="color: #dc3545; margin-bottom: 20px;">წვდომა აკრძალულია</h1>
+                    <p style="color: #6c757d; font-size: 18px; margin-bottom: 30px;">
+                        ძალიან ბევრი არასწორი მცდელობა. გთხოვთ, სცადოთ მოგვიანებით.
+                    </p>
+                    <button onclick="location.reload()" 
+                            style="background: #007bff; color: white; border: none; padding: 12px 24px; 
+                                   border-radius: 6px; cursor: pointer; font-size: 16px;">
+                        თავიდან სცადეთ
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    // Main password checking function
+    function checkPassword() {
+        if (isAuthenticated()) {
+            return; // User is already authenticated
+        }
+
+        let attempts = 0;
+        const overlay = createPasswordDialog();
+        document.body.appendChild(overlay);
+        
+        // Hide the main content
+        const content = document.querySelector('body > *:not(#password-overlay)');
+        if (content) {
+            content.style.display = 'none';
+        }
+
+        const passwordInput = document.getElementById('password-input');
+        const submitBtn = document.getElementById('submit-password');
+        const cancelBtn = document.getElementById('cancel-password');
+        const errorMsg = document.getElementById('error-message');
+        const attemptsCounter = document.getElementById('attempts-counter');
+
+        function updateAttemptsCounter() {
+            const remaining = CONFIG.maxAttempts - attempts;
+            attemptsCounter.textContent = `დარჩენილია ${remaining} მცდელობა`;
+            attemptsCounter.style.display = remaining < CONFIG.maxAttempts ? 'block' : 'none';
+        }
+
+        function showError(message) {
+            errorMsg.textContent = message;
+            errorMsg.style.display = 'block';
+            overlay.querySelector('div').classList.add('shake');
+            setTimeout(() => {
+                overlay.querySelector('div').classList.remove('shake');
+            }, 500);
+        }
+
+        function handleSubmit() {
+            const enteredPassword = passwordInput.value;
+            
+            if (!enteredPassword) {
+                showError('გთხოვთ, შეიყვანოთ პაროლი');
+                return;
+            }
+
+            if (enteredPassword === CONFIG.password) {
+                saveAuthState();
+                overlay.remove();
+                // Show the content
+                const hiddenContent = document.querySelector('body > *[style*="display: none"]');
+                if (hiddenContent) {
+                    hiddenContent.style.display = '';
+                }
+            } else {
+                attempts++;
+                if (attempts >= CONFIG.maxAttempts) {
+                    showAccessDenied();
+                } else {
+                    showError('არასწორი პაროლი');
+                    updateAttemptsCounter();
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            }
+        }
+
+        // Event listeners
+        submitBtn.addEventListener('click', handleSubmit);
+        cancelBtn.addEventListener('click', () => {
+            window.history.back();
+        });
+        
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleSubmit();
+            }
+        });
+
+        // Focus on input
+        setTimeout(() => passwordInput.focus(), 100);
+        updateAttemptsCounter();
+    }
+
+    // Wait for page to load completely
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', checkPassword);
+    } else {
+        checkPassword();
+    }
+})();
 ```
 
 
