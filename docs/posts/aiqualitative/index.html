@@ -2193,21 +2193,15 @@ d-appendix {
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below                      */
 </style>
-<style type="text/css">
-/* base variables */
-
+<style type="text/css">/* base variables */
 /* Edit the CSS properties in this file to create a custom
    Distill theme. Only edit values in the right column
    for each row; values shown are the CSS defaults.
    To return any property to the default,
    you may set its value to: unset
    All rows must end with a semi-colon.                      */
-
 /* Optional: embed custom fonts here with `@import`          */
 /* This must remain at the top of this file.                 */
-
-
-
 html {
   /*-- Main font sizes --*/
   --title-size:      50px;
@@ -2221,13 +2215,16 @@ html {
   --body-color:      rgba(0, 0, 0, 0.8);
   --aside-color:     rgba(0, 0, 0, 0.6);
   --fig-cap-color:   rgba(0, 0, 0, 0.6);
+  /*-- Hyperlink colors --*/
+  --link-color:      #4974a5;
+  --link-hover-color: #2d5a87;
+  --link-visited-color: #6b4c93;
   /*-- Specify custom fonts ~~~ must be imported above   --*/
   --heading-font:    sans-serif;
   --mono-font:       monospace;
   --body-font:       sans-serif;
   --navbar-font:     sans-serif;  /* websites + blogs only */
 }
-
 /*-- ARTICLE METADATA --*/
 d-byline {
   --heading-size:    0.6rem;
@@ -2235,13 +2232,11 @@ d-byline {
   --body-size:       0.8rem;
   --body-color:      rgba(0, 0, 0, 0.8);
 }
-
 /*-- ARTICLE TABLE OF CONTENTS --*/
 .d-contents {
   --heading-size:    18px;
   --contents-size:   13px;
 }
-
 /*-- ARTICLE APPENDIX --*/
 d-appendix {
   --heading-size:    15px;
@@ -2249,10 +2244,8 @@ d-appendix {
   --text-size:       0.8em;
   --text-color:      rgba(0, 0, 0, 0.5);
 }
-
 /*-- WEBSITE HEADER + FOOTER --*/
 /* These properties only apply to Distill sites and blogs  */
-
 .distill-site-header {
   --title-size:       18px;
   --text-color:       rgba(255, 255, 255, 0.8);
@@ -2260,17 +2253,40 @@ d-appendix {
   --hover-color:      white;
   --bkgd-color:       #4974a5;
 }
-
 .distill-site-footer {
   --text-color:       rgba(255, 255, 255, 0.8);
   --text-size:        15px;
   --hover-color:      white;
   --bkgd-color:       #0F2E3D;
 }
-
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below                      */
-</style>
+
+/* Hyperlink styling - only in article text content */
+d-article p a,
+d-article li a,
+d-article blockquote a,
+d-article .body a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+d-article p a:hover,
+d-article li a:hover,
+d-article blockquote a:hover,
+d-article .body a:hover {
+  color: var(--link-hover-color);
+  border-bottom-color: var(--link-hover-color);
+}
+
+d-article p a:visited,
+d-article li a:visited,
+d-article blockquote a:visited,
+d-article .body a:visited {
+  color: var(--link-visited-color);
+}</style>
 <style type="text/css">
 /* base style */
 
