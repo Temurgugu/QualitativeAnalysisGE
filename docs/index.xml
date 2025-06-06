@@ -19,13 +19,22 @@
       <media:content url="https://qartulad.netlify.app/posts/ScienceCSS/image/preview.png" medium="image" type="image/png" width="529" height="404"/>
     </item>
     <item>
+      <title>ხელოვნური ინტელექტის რევოლუცია თვისებრივი კვლევაში</title>
+      <dc:creator>თემურ გუგუშვილი</dc:creator>
+      <link>https://qartulad.netlify.app/posts/aiqualitative</link>
+      <description>ხელოვნური ინტერნეტი(ხი)</description>
+      <guid>https://qartulad.netlify.app/posts/aiqualitative</guid>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 +0000</pubDate>
+      <media:content url="https://qartulad.netlify.app/posts/aiqualitative/image/preview.png" medium="image" type="image/png" width="529" height="404"/>
+    </item>
+    <item>
       <title>თვისებრივი კონტენტ-ანალიზი (ფილიპ მაირინგი)</title>
       <dc:creator>თემურ გუგუშვილი</dc:creator>
       <dc:creator>თამუნა ჩხაიძე</dc:creator>
       <link>https://qartulad.netlify.app/posts/QCAMayring</link>
       <description>წარმოდგენილი სტატია აღწერს ტექსტის სისტემურ, ინსტრუქციებზე დაფუძნებულ ანალიზს, რომელიც ცდილობს შეინარჩუნოს რაოდენობრივი კონტენტ-ანალიზის მეთოდოლოგიური ძლიერი მხარეები და გაავრცელოს ისინი თვისებრივ მონაცემთა ანალიზის პროცედურებზე.</description>
       <guid>https://qartulad.netlify.app/posts/QCAMayring</guid>
-      <pubDate>Fri, 08 Jul 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 09 Jul 2022 00:00:00 +0000</pubDate>
       <media:content url="https://qartulad.netlify.app/posts/QCAMayring/image/preview.png" medium="image" type="image/png" width="529" height="404"/>
     </item>
   </channel>
