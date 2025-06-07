@@ -12,7 +12,7 @@ author:
     affiliation: ივანე ჯავახიშვილის სახელობის თბილისის სახელმწიფო უნივერსიტეტი
     affiliation_url: https://www.tsu.ge/
 date: 05-06-2025
-preview: image/preview.png
+preview: https://www.canva.com/design/DAGciFJikAA/SMMvENkFAQpBvGNFuIrxtQ/view?utm_content=DAGciFJikAA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=haa5c7a5d40
 output:
   distill::distill_article:
     self_contained: false
