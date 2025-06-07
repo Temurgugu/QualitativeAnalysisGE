@@ -1,0 +1,156 @@
+/* Custom CSS for distill - save as styles.css in your distill site */
+
+.fancy-policy-container {
+    max-width: 100%;
+    margin: 2rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    position: relative;
+}
+
+.fancy-policy-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #78A1C4, #CE7D41, #738C69, #98999C);
+    background-size: 300% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.policy-header {
+    background: linear-gradient(135deg, #78A1C4 0%, #738C69 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.policy-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 15px solid #738C69;
+}
+
+.policy-main-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    line-height: 1.3;
+}
+
+.policy-content {
+    padding: 3rem 2.5rem 2.5rem;
+    color: #333;
+}
+
+.policy-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: rgba(120, 161, 196, 0.05);
+    border-radius: 15px;
+    border-left: 5px solid #78A1C4;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.policy-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(120, 161, 196, 0.15);
+    background: rgba(120, 161, 196, 0.08);
+}
+
+.policy-section-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #78A1C4;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.policy-section-title::before {
+    content: '◆';
+    font-size: 1rem;
+    color: #CE7D41;
+}
+
+.policy-bullet-point {
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.policy-bullet-point::before {
+    content: '●';
+    position: absolute;
+    left: 0;
+    color: #78A1C4;
+    font-weight: bold;
+}
+
+.policy-highlight {
+    background: linear-gradient(120deg, rgba(206, 125, 65, 0.25) 0%, rgba(115, 140, 105, 0.25) 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.policy-decorative-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #78A1C4, #CE7D41, #738C69, transparent);
+    margin: 2rem 0;
+    border-radius: 1px;
+}
+
+/* Responsive adjustments for distill */
+@media (max-width: 768px) {
+    .policy-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .policy-header {
+        padding: 1.5rem;
+    }
+    
+    .policy-main-title {
+        font-size: 1.5rem;
+    }
+    
+    .policy-section {
+        padding: 1.2rem 1rem;
+    }
+}
+
+/* Ensure it works well with distill's existing styles */
+.distill-site-content .fancy-policy-container {
+    margin: 2rem auto;
+}
+
+d-article .fancy-policy-container {
+    margin: 2rem 0;
+}
