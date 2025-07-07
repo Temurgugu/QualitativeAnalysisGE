@@ -375,3 +375,20 @@ d-article .fancy-policy-container {
     box-shadow: 0 0 0 2px rgba(99, 179, 237, 0.25);
   }
 }
+
+
+.highlight-box {
+  background-color: #f0f8ff;
+  border-left: 4px solid #007acc;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.warning-box {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
