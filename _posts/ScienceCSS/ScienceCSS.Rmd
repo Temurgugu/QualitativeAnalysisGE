@@ -47,7 +47,7 @@ library(jsonlite)
         storageKey: "distill_auth_" + window.location.pathname,
         emailSubject: "კომპიუტერული სოციალური მეცნიერებები: დაბრკოლებები და შესაძლებლობები",
         emailBody: "გამარჯობა,\n\nგთხოვთ, გამიზიაროთ კოდი შემდეგი სტატიის წასაკითხად:\n\n\"კომპიუტერული სოციალური მეცნიერებები: დაბრკოლებები და შესაძლებლობები\"\n\nპატივისცემით,\n",
-        authorEmail: "tgugushvili@bsu.edu.ge" // Change this to the author's email
+        authorEmail: "tgugushvili@ibsu.edu.ge" // Change this to the author's email
     };
 
     // Check if user is already authenticated
