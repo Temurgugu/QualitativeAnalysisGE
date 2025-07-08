@@ -46,7 +46,7 @@ library(jsonlite)
         sessionTimeout: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
         storageKey: "distill_auth_" + window.location.pathname,
         emailSubject: "კომპიუტერული სოციალური მეცნიერებები: დაბრკოლებები და შესაძლებლობები",
-        emailBody: "გამარჯობა,\n\nგთხოვთ, გამიზიაროთ კოდი შემდეგი სტატიის წასაკითხად:\n\n\"კომპიუტერული სოციალური მეცნიერებები: დაბრკოლებები და შესაძლებლობები\"\n\nპატივისცემით,\n",
+        emailBody: "გამარჯობა,\n\nგთხოვთ, გამიზიაროთ პაროლი შემდეგი სტატიის წასაკითხად:\n\n\"კომპიუტერული სოციალური მეცნიერებები: დაბრკოლებები და შესაძლებლობები\"\n\nპატივისცემით,\n",
         authorEmail: "tgugushvili@ibsu.edu.ge" // Change this to the author's email
     };
 
@@ -193,7 +193,7 @@ library(jsonlite)
             
             <button id="request-access" class="request-button">
                 <span>📧</span>
-                <span>კოდის მოთხოვნა ავტორისგან</span>
+                <span>პაროლის მოთხოვნა ავტორისგან</span>
             </button>
             
             <div id="error-message" style="color: #dc3545; margin-top: 15px; font-size: 14px; display: none;"></div>
