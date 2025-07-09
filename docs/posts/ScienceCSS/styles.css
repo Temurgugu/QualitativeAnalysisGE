@@ -469,3 +469,50 @@ d-article .fancy-policy-container {
   margin: 0;
   font-size: 1.1rem;
 }
+
+
+.accordion {
+  background-color: #f0f7ff;
+  color: #333;
+  cursor: pointer;
+  padding: 1em;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.1em;
+  transition: 0.4s;
+  border-radius: 6px;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+.accordion:hover {
+  background-color: #e0efff;
+}
+
+.panel {
+  padding: 0 1em;
+  display: none;
+  background-color: #ffffff;
+  overflow: hidden;
+  border-left: 4px solid #0c7cd5;
+  margin-bottom: 1em;
+  border-radius: 6px;
+}
+
+.highlight-box {
+  background-color: #fffbe6;
+  border-left: 4px solid #ffcc00;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 6px;
+}
+
+.warning-box {
+  background-color: #ffe6e6;
+  border-left: 4px solid #ff4d4d;
+  padding: 1em;
+  margin: 1em 0;
+  border-radius: 6px;
+}

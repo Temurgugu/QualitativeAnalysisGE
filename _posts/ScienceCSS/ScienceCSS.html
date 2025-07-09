@@ -1908,12 +1908,37 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 })();
 </script>
 </div>
+<button class="accordion">
+📘 Translation Notice &amp; License
+</button>
+<div class="panel">
 <div class="highlight-box">
-<p><strong>Important:</strong> From David M. J. Lazer et al. , (2020). Computational social science: Obstacles and opportunities. Science369,1060-1062DOI:10.1126/science.aaz8170 translated with permission from AAAS.</p>
+<strong>Important:</strong> From David M. J. Lazer et al., (2020). <em>Computational social science: Obstacles and opportunities.</em> <br>
+<em>Science</em> 369, 1060–1062. DOI: 10.1126/science.aaz8170. Translated with permission from AAAS.
 </div>
 <div class="warning-box">
-<p><strong>Important:</strong> Artificial intelligence (AI) was used to create this translation in part. This translation is not an official translation by AAAS staff, nor is it endorsed by AAAS as accurate. In crucial matters, please refer to the official English-language version originally published by AAAS.</p>
+<strong>Important:</strong> Artificial intelligence (AI) was used to create this translation in part. This translation is not an official translation by AAAS staff, nor is it endorsed by AAAS as accurate. In crucial matters, please refer to the official English-language version originally published by AAAS.
 </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var acc = document.getElementsByClassName("accordion");
+  for (var i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+
+    // Default state is closed
+    acc[i].nextElementSibling.style.display = "none";
+  }
+});
+</script>
 <div style="border: 2px solid #e0e0e0; background-color: #fefefe; padding: 1.5em; margin: 2em 0; border-radius: 10px; text-align: center;">
 <p><img src="https://i.imgur.com/A6XxUMU.gif" alt="Annotate with Hypothes.is" style="max-width: 100px; display: block; margin: 0 auto 1em auto;">
 <strong style="font-size: 1.2em;">გაგვიზიარეთ კომენტარები და უკუკავშირ</strong><br>
